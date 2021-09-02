@@ -10,9 +10,10 @@ import './_app.sass';
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
-      <Layout />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
       <Modals />
-      <Component {...pageProps} />
     </Provider>
   );
 }

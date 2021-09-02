@@ -23,7 +23,6 @@ export const ModalLogin = () => {
   };
 
   return <>
-    <p>a</p>
     <Modal
       title="Title"
       visible={isActive}
