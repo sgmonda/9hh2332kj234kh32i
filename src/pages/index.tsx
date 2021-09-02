@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { decrement, increment, incrementByAmount, selectCount } from '../store/counter';
+import { DialogLogin } from '../components';
 
 const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -30,6 +31,10 @@ const IndexPage: React.FC = () => {
         <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
         <button onClick={() => dispatch(increment())}>Increment by 1</button>
       </div>
+
+
+
+
     </>
   );
 };
