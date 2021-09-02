@@ -1,11 +1,13 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import counter from './counter';
 import modal from './modal';
+import navigation from './navigation';
 
 const store = configureStore({
   reducer: {
     counter,
     modal,
+    navigation,
   },
 });
 

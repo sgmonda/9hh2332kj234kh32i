@@ -10,13 +10,9 @@ interface Props { }
 export const MainLayout: React.FC<Props> = ({ children }) => <>
   <Layout className={styles.layout}>
     <Navbar />
-
     <Layout className={styles.sublayout}>
-      <Header>
-        <h2>Bienvenido</h2>
-        <p>Éstas son las personas</p>
-      </Header>
-      <Content style={{ margin: '0 16px' }}>
+      <Header />
+      <Content style={{ margin: '0 3.5em' }}>
         {children}
       </Content>
     </Layout>

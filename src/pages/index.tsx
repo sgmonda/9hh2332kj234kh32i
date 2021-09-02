@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { decrement, increment, incrementByAmount, selectCount } from '../store/counter';
-import { DialogLogin } from '../components';
 
 const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
