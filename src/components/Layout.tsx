@@ -12,7 +12,7 @@ export const MainLayout: React.FC<Props> = ({ children }) => <>
     <Navbar />
     <Layout className={styles.sublayout}>
       <Header />
-      <Content style={{ margin: '0 3.5em' }}>
+      <Content className={styles.content}>
         {children}
       </Content>
     </Layout>
