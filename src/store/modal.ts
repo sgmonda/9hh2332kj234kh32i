@@ -24,6 +24,6 @@ export const slice = createSlice({
 });
 
 export const { show, hide } = slice.actions;
-export const selector = (state: RootState) => state.modal.activeModal;
+export const selector = (state: RootState) => state.modal;
 
 export default slice.reducer;

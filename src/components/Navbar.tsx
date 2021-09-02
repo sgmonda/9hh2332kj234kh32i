@@ -39,9 +39,9 @@ export const Navbar = () => {
         <MenuOutlined size={100} onClick={toggleNavbar} />
       </div>
       <div className={`logo ${styles.logo}`} >
-        <img src={isCollapsed ? '/logo.png' : '/logo-large.png'} />
+        <img src={isCollapsed ? '/logo.png' : '/logo-large.png'} alt="Logo" />
       </div>
-      <Menu defaultSelectedKeys={[router.asPath]} mode="vertical" className={styles.menu}>
+      <Menu selectedKeys={[router.asPath]} mode="vertical" className={styles.menu}>
         {routes.map(({ icon, path, label }) => (
           <Menu.Item key={path} icon={icon} onClick={getRouteHandler(path)}>{label}</Menu.Item>
         ))}
