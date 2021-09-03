@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './index';
-import { EModal } from '../common';
+import { EModal, User } from '../common';
 
 export type State = {
   activeModal: EModal | null,
+  user?: User,
 };
 
 const initialState: State = {
@@ -14,11 +15,12 @@ export const slice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    show: (state, action: PayloadAction<EModal>) => {
-      state.activeModal = action.payload;
+    show: (state, action: PayloadAction<{ type: EModal, user?: User }>) => {
+      console.log('SHOWING', action.payload);
+      Object.assign(state, { activeModal: action.payload.type, user: action.payload.user });
     },
     hide: state => {
-      state.activeModal = null;
+      Object.assign(state, { activeModal: null, _id: null });
     },
   },
 });

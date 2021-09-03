@@ -11,11 +11,10 @@ interface Props<T> {
 };
 
 export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }: Props<T>) {
-  const [items, setItems] = useState<T[]>(initialItems);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const auth = useAppSelector(authSelector);
-
+  const [items, setItems] = useState<T[]>(initialItems);
   const [page, setPage] = useState<number>(Math.floor(initialItems.length / pageSize));
+  const auth = useAppSelector(authSelector);
 
   const observer = useRef<IntersectionObserver>();
   const lastItemRef = useCallback(node => {
@@ -23,7 +22,6 @@ export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }:
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        console.log('VISIBLE');
         setPage(page + 1);
         fetch(page + 1);
       }
@@ -52,7 +50,7 @@ export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }:
   const placeholders = new Array(pageSize).fill({});
 
   return (
-    <ul>
+    <ul style={{ listStyle: 'none', padding: 0 }}>
       {items.map((item, i) => (
         <li key={i} ref={i === items.length - 1 ? lastItemRef : null}>
           <ItemRenderer {...item} />

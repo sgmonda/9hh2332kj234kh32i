@@ -4,7 +4,7 @@ import { selector as usersSelector, setListData } from '../store/users';
 import { User } from '../common';
 import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import { List } from '../components';
+import { List, UserListItem } from '../components';
 
 const IndexPage: React.FC = () => {
   const auth = useAppSelector(authSelector);
@@ -20,16 +20,12 @@ const UsersList = () => {
     <List<User>
       endpoint="/api/users"
       pageSize={10}
-      ItemRenderer={ListItem}
+      ItemRenderer={UserListItem}
     />
   </>;
 }
 
-const ListItem: FC<Partial<User>> = (user) => {
-  return (
-    <div>{user._id || 'Loading...'}</div>
-  );
-}
+
 
 
 // <<<<<<< https://youtu.be/NZKUirTtxcg?t=309

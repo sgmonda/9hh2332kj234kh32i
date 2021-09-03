@@ -33,7 +33,7 @@ const HeaderForUser = () => {
 
 const HeaderForGuest = () => {
   const dispatch = useAppDispatch();
-  const showModalLogin = () => dispatch(show(EModal.LOGIN));
+  const showModalLogin = () => dispatch(show({ type: EModal.LOGIN }));
   return <>
     <h2>Aún no has iniciado sesión</h2>
     <p>

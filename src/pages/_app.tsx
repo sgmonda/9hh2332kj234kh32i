@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 import React from 'react';
 import store from '../store';
-import { Layout, ModalLogin } from '../components';
+import { Layout, ModalLogin, ModalUser } from '../components';
 
 import 'antd/dist/antd.css';
 import './_app.sass';
@@ -20,6 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
 const Modals = () => <>
   <ModalLogin />
+  <ModalUser />
 </>;
 
 export default App;

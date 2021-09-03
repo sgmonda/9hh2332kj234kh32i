@@ -1,0 +1,28 @@
+.row
+  border-bottom: solid 1px #ddd
+  padding: 1em 0
+  display: flex
+
+  & > div:first-child
+    font-size: 2em
+
+  & > div:not(:first-child)
+    flex: 1
+    padding: 0 2em
+
+  & > div:not(:last-child):not(:first-child)
+    border-right: solid 1px #ddd
+
+  & > div
+    & > div *
+      margin: 0 !important
+    & > div:first-child
+      color: black
+    & > div:nth-child(2)
+      color: #aaa
+
+  .openLink
+    float: right
+    & > a
+      color: black !important
+      font-size: large

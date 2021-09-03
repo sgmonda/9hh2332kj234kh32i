@@ -29,7 +29,7 @@ const endpoint: NextApiHandler = async ({ headers, query }, res) => {
 
   setTimeout(() => {
     res.status(200).json(items);
-  }, Math.random() * 1000 * 3)
+  }, Math.random() * 1000);
 
 };
 
