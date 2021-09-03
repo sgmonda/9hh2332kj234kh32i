@@ -1,3 +1,7 @@
+See this in action!
+
+- [https://9hh2332kj234kh32i.vercel.app](https://9hh2332kj234kh32i.vercel.app)
+
 ## Considerations
 
 - **Ant Design**
@@ -42,4 +46,23 @@ Other:
 - `<ModalUser />`: modal to show user info, as shown in the UI designs.
 
 ## Tests
+
+I've implemented simple e2e tests using Cypress, to check user interaction works as expected. To execute them, just run the following:
+
+On terminal 1:
+
+``` sh
+$ npm run dev
+```
+On terminal 2/2:
+
+``` sh
+$ npm test
+```
+
+For interactive view of tests running inside a real browser, instead of `npm test` use the following:
+
+``` sh
+$ npm run test:show
+```
 
