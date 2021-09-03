@@ -54,15 +54,29 @@ On terminal 1:
 ``` sh
 $ npm run dev
 ```
-On terminal 2/2:
+On terminal 2/2, run tests in one of the two available options:
+
+- Headless
+- Interactive
+
+### Headless mode
+
+This will run Cypress tests and show results into a terminal:
 
 ``` sh
 $ npm test
 ```
 
-For interactive view of tests running inside a real browser, instead of `npm test` use the following:
+![](https://user-images.githubusercontent.com/675812/132038650-716f517f-6ac3-4453-90a7-57f3d9860919.png)
+
+### Interactive mode
+
+This will open Cypress tests inside a browser:
 
 ``` sh
 $ npm run test:show
 ```
 
+![navigation spec ts](https://user-images.githubusercontent.com/675812/132039470-e1136307-a191-4887-95b1-8f02f8021d14.gif)
+![pagination spec ts](https://user-images.githubusercontent.com/675812/132039482-db010551-07c6-48a4-a33f-01f5cd2d1dbc.gif)
+![authentication spec ts](https://user-images.githubusercontent.com/675812/132039451-95faaff9-4011-443c-90d8-6fecea5ebf7c.gif)
