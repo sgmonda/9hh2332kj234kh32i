@@ -14,13 +14,23 @@ const IndexPage: React.FC = () => {
 const NotAuthError = () => <p>Inicia sesión para ver este contenido.</p>;
 
 const UsersList = () => {
-  const [page, setPage] = useState<number>(0);
+  const dispatch = useAppDispatch();
+  const { items } = useAppSelector(usersSelector);
+
+  const onChange = (page: number, items: User[]) => {
+    console.log('items change', page, items);
+    dispatch(setListData({ items }));
+  };
+
+  console.log('INITIAL', items.length);
 
   return <>
     <List<User>
       endpoint="/api/users"
       pageSize={10}
       ItemRenderer={UserListItem}
+      initialItems={items}
+      onChange={onChange}
     />
   </>;
 }

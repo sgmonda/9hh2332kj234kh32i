@@ -3,14 +3,10 @@ import type { RootState } from './index';
 import { User } from '../common';
 
 export type State = {
-  pages: number;
-  page: number;
   items: User[];
 };
 
 const initialState: State = {
-  page: 0,
-  pages: 1,
   items: [],
 };
 

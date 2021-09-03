@@ -8,9 +8,10 @@ interface Props<T> {
   pageSize: number;
   ItemRenderer: FunctionComponent<Partial<T>>;
   initialItems?: T[];
+  onChange?: (page: number, items: T[]) => void;
 };
 
-export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }: Props<T>) {
+export function List<T>({ pageSize, endpoint, onChange, initialItems = [], ItemRenderer }: Props<T>) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState<T[]>(initialItems);
   const [page, setPage] = useState<number>(Math.floor(initialItems.length / pageSize));
@@ -22,8 +23,8 @@ export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }:
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
+        fetch(page);
         setPage(page + 1);
-        fetch(page + 1);
       }
     });
     if (node) observer.current.observe(node);
@@ -31,11 +32,14 @@ export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }:
   }, [isLoading]);
 
   const fetch = async (page: number = 0) => {
+    if (isLoading) return;
     setIsLoading(true);
     try {
       console.log(`Fetching (page ${page})...`);
       const { data } = await axios.get(`${endpoint}?pageSize=${pageSize}&page=${page}`, { headers: { token: auth.user?.token } });
-      setItems([...items, ...data]);
+      const newItems = [...items, ...data];
+      setItems(newItems);
+      onChange?.(page, newItems);
       console.log(`${data.length} items fetched`);
     } catch (err) {
       console.error('Error', err);
@@ -44,7 +48,7 @@ export function List<T>({ pageSize, endpoint, initialItems = [], ItemRenderer }:
   }
 
   useEffect(() => {
-    fetch();
+    if (!initialItems.length) fetch();
   }, [endpoint]);
 
   const placeholders = new Array(pageSize).fill({});
