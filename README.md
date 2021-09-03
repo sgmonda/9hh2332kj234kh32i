@@ -4,6 +4,26 @@ This is my proposed solution, running serverless in Vercel:
 
 The following tiny document explains a bit how I've implemented it and some decissions I've made.
 
+#### Running
+
+To run this locally:
+
+```
+$ git clone git@github.com:sgmonda/9hh2332kj234kh32i.git
+$ cd 9hh2332kj234kh32i
+$ npm i
+$ npm run build
+$ npm start
+```
+
+Then just open http://localhost:3000 from a browser.
+
+Note: For development mode, with hot reload, use the following instead of `npm run build && npm start`:
+
+```
+$ npm run dev
+```
+
 ## General considerations
 
 - **Ant Design**
