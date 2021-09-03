@@ -16,7 +16,6 @@ export const slice = createSlice({
   initialState,
   reducers: {
     show: (state, action: PayloadAction<{ type: EModal, user?: User }>) => {
-      console.log('SHOWING', action.payload);
       Object.assign(state, { activeModal: action.payload.type, user: action.payload.user });
     },
     hide: state => {

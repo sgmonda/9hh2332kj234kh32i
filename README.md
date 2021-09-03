@@ -13,7 +13,33 @@
 - **User list/modal**
   Given the simplicity of user schema, I'm returning the whole user data when listing. It wouldn't be recommended in production if the user schema contains more data not needed for listing but required by the user modal. The proper approach would be to have another endpoint for fetching the whole user.
 - **Stacked modals**
-  For simplicity, I'm using Redux to show/hide modals in a simple way that limits open modals to one (login and/or user modals). This means modals could not be stacked one above others. Note there could be a better approach in production if we consider accessibility and [w3 aria best practices](https://www.w3.org/TR/wai-aria-practices-1.1/). Again, for this example I've considered it is enough this way. 
+  For simplicity, I'm using Redux to show/hide modals in a simple way that limits open modals to one (login and/or user modals). This means modals could not be stacked one above others. Note there could be a better approach in production if we consider accessibility and [w3 aria best practices](https://www.w3.org/TR/wai-aria-practices-1.1/). Again, for this example I've considered it is enough this way.
+  
+## Redux store
+
+Following the latest [`redux-toolkit`](https://redux-toolkit.js.org) recommendations, I've designed 3 reducers:
+
+- `auth`, to store the session-related data
+- `navigation`, to store info related to the navigation bar (if it is collapsed or not, for instance)
+- `modal`, to store the state related with modals, like which one is open or the data to be shown
+- `users`, to store user list fetched items according to pagination.
+
+## Components
+
+I like keeping components as small and reusable as possible. Focused on this, I've included the following components:
+
+For layout:
+
+- `<Layout />`
+- `<Navbar />`
+- `<Header />`
+
+Other:
+
+- `<List />`: generic component for infinite scroll lists
+- `<UserListItem />`: list item view to be used with generic `<List />`
+- `<ModalLogin />`: modal for login (I've decided to use this approach instead of creating another page, as sometimes parts of the app don't have to be hidden for non-authenticated users)
+- `<ModalUser />`: modal to show user info, as shown in the UI designs.
 
 ## Tests
 

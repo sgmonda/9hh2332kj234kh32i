@@ -54,7 +54,6 @@ export const UserListItem: FC<Partial<User>> = (user) => {
           <Placeholder isTitle />
           <Placeholder />
         </>}
-
       </div>
     </div>
   );

@@ -35,12 +35,10 @@ export function List<T>({ pageSize, endpoint, onChange, initialItems = [], ItemR
     if (isLoading) return;
     setIsLoading(true);
     try {
-      console.log(`Fetching (page ${page})...`);
       const { data } = await axios.get(`${endpoint}?pageSize=${pageSize}&page=${page}`, { headers: { token: auth.user?.token } });
       const newItems = [...items, ...data];
       setItems(newItems);
       onChange?.(page, newItems);
-      console.log(`${data.length} items fetched`);
     } catch (err) {
       console.error('Error', err);
     }

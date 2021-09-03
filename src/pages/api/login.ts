@@ -8,7 +8,7 @@ const endpoint: NextApiHandler = async ({ body }, res) => {
   if (body.username !== 'test' || body.password !== 'test') {
     return res.status(403).json({ error: 'Combinación de usuario y contraseña incorrecta' });
   }
-  res.status(200).json({ name: 'Rodrigo', role: 'basic', id: 'xxxxx', token: 'TEST_TOKEN' });
+  res.status(200).json({ firstName: 'Rodrigo', lastName: 'Bla bla bla', role: 'basic', _id: 'xxxxx', token: 'TEST_TOKEN' });
 };
 
 export default endpoint;

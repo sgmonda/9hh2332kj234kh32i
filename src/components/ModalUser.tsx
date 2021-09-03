@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from 'antd';
-import { EModal, User } from '../common';
+import { EModal } from '../common';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { selector, hide } from '../store/modal';
 import { TagFilled, CloseCircleOutlined } from '@ant-design/icons';

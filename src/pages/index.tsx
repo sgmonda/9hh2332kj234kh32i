@@ -22,8 +22,6 @@ const UsersList = () => {
     dispatch(setListData({ items }));
   };
 
-  console.log('INITIAL', items.length);
-
   return <>
     <List<User>
       endpoint="/api/users"
@@ -34,10 +32,5 @@ const UsersList = () => {
     />
   </>;
 }
-
-
-
-
-// <<<<<<< https://youtu.be/NZKUirTtxcg?t=309
 
 export default IndexPage;

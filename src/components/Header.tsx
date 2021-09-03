@@ -23,7 +23,7 @@ const HeaderForUser = () => {
   const dispatch = useAppDispatch();
   return <>
     <h2>
-      Bienvenido, {auth.user?.name}
+      Bienvenido, {auth.user?.firstName}
       {' '}
       <small>(<a onClick={() => dispatch(logout())}>cerrar sesión</a>)</small>
     </h2>
