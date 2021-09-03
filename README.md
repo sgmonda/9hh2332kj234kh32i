@@ -1,6 +1,8 @@
-See this in action!
+This is my proposed solution, running serverless in Vercel:
 
 - [https://9hh2332kj234kh32i.vercel.app](https://9hh2332kj234kh32i.vercel.app)
+
+The following tiny document explains a bit how I've implemented it and some decissions I've made.
 
 ## Considerations
 
