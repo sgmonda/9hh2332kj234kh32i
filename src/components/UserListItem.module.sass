@@ -3,6 +3,7 @@
   padding: 1em 0
   display: flex
 
+
   & > div:first-child
     font-size: 2em
 
@@ -12,6 +13,15 @@
 
   & > div:not(:last-child):not(:first-child)
     border-right: solid 1px #ddd
+
+  & > div:nth-child(1)
+    flex: 0 0 1em
+  & > div:nth-child(2)
+    flex: 0 0 25%
+    overflow: hidden
+  & > div:nth-child(3)
+    flex: 0 0 40%
+    overflow: hidden
 
   & > div
     & > div *
