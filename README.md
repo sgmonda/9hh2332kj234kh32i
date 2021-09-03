@@ -4,7 +4,7 @@ This is my proposed solution, running serverless in Vercel:
 
 The following tiny document explains a bit how I've implemented it and some decissions I've made.
 
-## Considerations
+## General considerations
 
 - **Ant Design**
   I never used [Ant-d](https://ant.design/) before, but keeping in mind the job position listed it as a technology used by the company, I've taken advantage of the opportunity to use it as UI components library. It means I've needed to make some adaptations by mean of SASS, as provided screenshots didn't match the Ant-d design in some aspects. It also means used icons not always match exactly provided ones, but I've tried to find similar ones.
@@ -47,7 +47,7 @@ Other:
 - `<ModalLogin />`: modal for login (I've decided to use this approach instead of creating another page, as sometimes parts of the app don't have to be hidden for non-authenticated users)
 - `<ModalUser />`: modal to show user info, as shown in the UI designs.
 
-## Tests
+## Testing
 
 I've implemented simple e2e tests using Cypress, to check user interaction works as expected. To execute them, just run the following:
 
@@ -61,7 +61,7 @@ On terminal 2/2, run tests in one of the two available options:
 - Headless
 - Interactive
 
-### Headless mode
+#### Headless mode
 
 This will run Cypress tests and show results into a terminal:
 
@@ -71,7 +71,7 @@ $ npm test
 
 ![](https://user-images.githubusercontent.com/675812/132038650-716f517f-6ac3-4453-90a7-57f3d9860919.png)
 
-### Interactive mode
+#### Interactive mode
 
 This will open Cypress tests inside a browser:
 
